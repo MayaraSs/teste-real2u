@@ -53,9 +53,65 @@ GET http://127.0.0.1:5000/blur/name_image.jpg
 
 ```
 
-3. (Bônus) Desenvolva um client em React que recebe uma url de input do usuário, faz requisições para o servidor (2), e mostra a imagem final. Se o seu filtro é parametrizável, deixe o usuário escolher esses parâmetros no front antes de aplicar o filtro
+## 3. (Bônus) Desenvolva um client em React que recebe uma url de input do usuário, faz requisições para o servidor (2), e mostra a imagem final. Se o seu filtro é parametrizável, deixe o usuário escolher esses parâmetros no front antes de aplicar o filtro
 
-Referências utilizadas:
+- Criei um App react utilizando o npx create-react-app my-app, assim apenas adicionei um component chamado UrlButton que irá receber uma url e ao clicar no botão ele irá enviar para o backend pela função callApiBluFilter que irá retornar a img com o filtro blur aplicado.
+
+## Como executar
+
+Para executar o frontend:
+
+```bash
+cd front-app
+npm i
+npm start
+
+```
+
+Você deve inserir uma url de imagem no formato jpg
+
+Para executar o backend
+
+```bash
+pip3 install flask
+pip3 install Pillow
+pip3 install opencv-python
+pip3 install numpy
+
+python3 server.py
+```
+
+## O que pode ser melhorado no código
+
+- Nos códigos python
+
+```python
+# Na função usada para pegar o nome da imagem esta apenas para jpg
+# podendo ser uma lista ['jpg', 'png', 'jpeg',...] assim funcionará para
+# todos os formatos
+def get_image_name(url):
+    url_splited = url.split('/')
+    for item in url_splited:
+        if '.jpg' in item:
+            return item
+
+## também na funcao de download se colocarmos
+## um try catch irá evitar erro de url que não são imagem ou
+## erros no download
+def download_image2(url):
+    try:
+      name_image = get_image_name(url)
+      urlretrieve(url, f"static/{name_image}")
+    except Exception as err:
+      return err
+
+# No servidor flask podemos criar algumas funções para reutilizar código
+# que estão muito repetitivos
+```
+
+- No front end podemos separar melhor os components em mais componentes com responsabilidades únicas
+
+## Referências utilizadas:
 
 https://docs.gimp.org/2.10/en/filters.html
 
@@ -65,4 +121,4 @@ https://stackoverflow.com/questions/46785507/python-flask-display-image-on-a-htm
 
 https://image4.io/en/blog/how-to-apply-filters-to-images-using-python-and-opencv/
 
-Entregue o código via repositórios Git (não esqueça de deixar público!)
+https://pt-br.reactjs.org/docs/create-a-new-react-app.html
