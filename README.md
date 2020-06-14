@@ -12,6 +12,8 @@
 
 - Por último realizei a chamada das funções e salvei a imagem no formato original como image_antiga e a imagem com o filtro como image_com_filtro.
 
+- Criei um arquivo ex01.py para executar o script das chamadas das funções para fazer download a img e aplicar o filtro
+
 ## 2. (Bônus) Faça um servidor, também em Python, que, recebendo a url de uma imagem, chama o script desenvolvido em (1)
 
 - Importe o Flask e o json
@@ -54,9 +56,13 @@ GET http://127.0.0.1:5000/blur/name_image.jpg
 3. (Bônus) Desenvolva um client em React que recebe uma url de input do usuário, faz requisições para o servidor (2), e mostra a imagem final. Se o seu filtro é parametrizável, deixe o usuário escolher esses parâmetros no front antes de aplicar o filtro
 
 Referências utilizadas:
+
 https://docs.gimp.org/2.10/en/filters.html
+
 https://flask.palletsprojects.com/en/1.1.x/
+
 https://stackoverflow.com/questions/46785507/python-flask-display-image-on-a-html-page
+
 https://image4.io/en/blog/how-to-apply-filters-to-images-using-python-and-opencv/
 
 Entregue o código via repositórios Git (não esqueça de deixar público!)
