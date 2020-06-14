@@ -1,10 +1,11 @@
 import os
 import cv2
 import numpy as np
-import urllib.request
+from urllib.request import urlretrieve
 
 def download_image2(url):
-    urllib.request.urlretrieve(url)
+    name_image = get_image_name(url)
+    urlretrieve(url, f"static/{name_image}")
 
 def download_image(url):
    os.system('wget {}'.format(url))
@@ -42,7 +43,7 @@ def get_image_name(url):
 
 #image_name = get_image_name('http://site.meishij.net/r/58/25/3568808/a3568808_142682562777944.jpg')
 #print(image_name)
-#download_image('http://site.meishij.net/r/58/25/3568808/a3568808_142682562777944.jpg')
+#download_image2('http://site.meishij.net/r/58/25/3568808/a3568808_142682562777944.jpg')
 """img = open_image('a3568808_142682562777944.jpg')
 img_with_blur = apply_filter_blur(img)
 save_image("image_antiga.jpg", img)

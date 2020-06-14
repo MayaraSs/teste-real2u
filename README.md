@@ -14,6 +14,40 @@
 
 ## 2. (Bônus) Faça um servidor, também em Python, que, recebendo a url de uma imagem, chama o script desenvolvido em (1)
 
+    -  Importe o Flask e o json
+
+    - Criei uma rota com o método Post para o download de imagem. Eu mandei um json com uma chave url e a url no valor da chave.
+    Para chamar a rota:
+    ```
+    python3 sever.py
+
+    POST {"url": "url_image"} http://127.0.0.1:5000/download-image
+
+    ```
+
+    - Fiz uma função no arquivo url_image chamada get_image_name para retornar o nome da imagem.
+
+    - Criei uma rota para mostrar a imagem na tela chamada show_image.
+    Para chamar a rota:
+    ```
+    python3 sever.py
+    name_image.jpg é retornado na rota de download
+    GET http://127.0.0.1:5000/name_image.jpg
+
+    ```
+
+    - Criei um arquivo chamado index.html para redenrizar a imagem para o usuário.
+
+    - Criei outra função para fazer download da imagem utilizando a biblioteca urllib no lugar da chamada de sistema wget.
+
+    - Criei uma rota para mostrar a imagem com o filtro paa o usuário chamada apply_filter.
+     ```
+    python3 sever.py
+    name_image.jpg é retornado na rota de download
+    GET http://127.0.0.1:5000/blur/name_image.jpg
+
+    ```
+
 3. (Bônus) Desenvolva um client em React que recebe uma url de input do usuário, faz requisições para o servidor (2), e mostra a imagem final. Se o seu filtro é parametrizável, deixe o usuário escolher esses parâmetros no front antes de aplicar o filtro
 
 Referências:
